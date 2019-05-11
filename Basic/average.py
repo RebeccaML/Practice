@@ -1,3 +1,5 @@
+# Find the average of an array of numbers
+
 grades = [100, 95, 93, 91, 90, 89,
         87, 87, 85, 85, 84, 82]
 sum = 0

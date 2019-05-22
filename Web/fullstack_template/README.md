@@ -1,1 +1,0 @@
-Learning how to set up an app with Python and React.

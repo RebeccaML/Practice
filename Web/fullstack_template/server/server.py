@@ -1,3 +1,4 @@
+import random
 from flask import Flask, render_template
 
 app = Flask(__name__, static_folder="../static/dist",
@@ -9,7 +10,11 @@ def index():
 
 @app.route("/hello")
 def hello():
-    return "Hello World!"
+    return get_hello()
+
+def get_hello():
+    greeting_list = ["Ciao", "Hei", "Salut", "Hola", "Hallo", "Hej"]
+    return random.choice(greeting_list)
 
 if __name__ == "__main__":
     app.run()

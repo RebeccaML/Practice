@@ -3,7 +3,7 @@
 # Answer is equality
 
 # Opens the file
-file = open("rareChars.txt")
+file = open("pc#2.txt")
 file_string = file.read()
 uniqueChars = [] # List to contain every unique character in the file
 

@@ -13,7 +13,7 @@ for char in file_string:
     if char not in uniqueChars:
         uniqueChars.append(char)
 
-# For every character in the uniqueChars list, count how many times is apppears in the file
+# For every character in the uniqueChars list, count how many times it apppears in the file
 # and print before moving to the next unique char
 
 for u_char in uniqueChars:

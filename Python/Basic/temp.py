@@ -1,8 +1,12 @@
 # Practice file
 
-stuff = ["things", "more", "dinosaur", "cat"]
-s = ""
+array = [6, 2, 3, 8]
 
-joined = s.join(stuff)
+def makeArrayConsecutive2(statues):
+    min_num = min(statues)
+    max_num = max(statues)
+    num_range = max_num - min_num + 1
 
-print(joined)
+    return num_range - len(statues)
+
+print(makeArrayConsecutive2(array))

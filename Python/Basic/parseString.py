@@ -5,6 +5,7 @@
 
 inputFile = open("pc#3.txt")
 file_string = inputFile.read()
+inputFile.close() # Done with the file
 length = len(file_string) # Get the length of the string to use range
 result = "" # Put matching letters in a string for readability
 

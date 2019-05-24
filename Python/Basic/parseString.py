@@ -3,8 +3,8 @@
 # letters on either side.
 # In progress... there might be a better way to do this
 
-file = open("pc#3.txt")
-file_string = file.read()
+inputFile = open("pc#3.txt")
+file_string = inputFile.read()
 length = len(file_string) # Get the length of the string to use range
 result = "" # Put matching letters in a string for readability
 

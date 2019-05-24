@@ -3,8 +3,8 @@
 # Answer is equality
 
 # Opens the file
-file = open("pc#2.txt")
-file_string = file.read()
+inputFile = open("pc#2.txt")
+file_string = inputFile.read()
 uniqueChars = [] # List to contain every unique character in the file
 
 # Look for each unique character and put them in a list

@@ -1,12 +1,9 @@
 # Practice file
 
-array = [6, 2, 3, 8]
+def has_a_vowel(a_str):
+    for letter in a_str:
+        if letter in "aeiou":
+            return True
+    return False
 
-def makeArrayConsecutive2(statues):
-    min_num = min(statues)
-    max_num = max(statues)
-    num_range = max_num - min_num + 1
-
-    return num_range - len(statues)
-
-print(makeArrayConsecutive2(array))
+print(has_a_vowel("beeswax"))

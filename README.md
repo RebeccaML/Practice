@@ -1,9 +1,6 @@
 # Practice
-Random stuff I'm working on in order to learn
+Random stuff I'm working on in order to learn.
 
-Python: Currently contains small Python exercises from various courses and challenges found online.
+Files are commented to indicate whether it was a challenge or a tutorial and the source.
 
-Web: Working on setting up a Python backend using Flask and React frontend
-     Following React intro tutorial to make a tic-tac-toe game
-
-JavaScript: Going through the https://javascript30.com/ projects
+Larger projects will include a readme file.

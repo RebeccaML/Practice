@@ -1,5 +1,8 @@
 <!doctype html>
 <html lang="en">
+<!-- Made as part of the https://www.udemy.com/course/the-complete-web-development-bootcamp/ course.
+I designed this myself using what I learned in the bootstrap section instead of making the example project. 
+I did take some layout ideas from the example project -->
 
 <head>
     <meta charset="utf-8">
@@ -10,7 +13,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,700&display=swap">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-    <title>Hello, world!</title>
+    <title>LFG - The best app in Azeroth for forming the perfect group</title>
 </head>
 
 <body>
@@ -21,7 +24,6 @@
                 aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarToggle">
 
                 <ul class="navbar-nav ml-auto">
@@ -32,6 +34,9 @@
                         <a class="nav-link" href="#testimonials">Testimonials</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="#press">Press</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#pricing">Pricing</a>
                     </li>
                 </ul>
@@ -40,54 +45,75 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-6 my-auto">
-                    <h1>Find the perfect person to fill out your group</h1>
-                    <button type="button" class="btn btn-light btn-lg"><i class="fab fa-apple"></i> Download</button>
-                    <button type="button" class="btn btn-dark btn-lg"><i class="fab fa-google-play"></i> Download</button>
+                    <h1>Find the perfect adventurer to fill out your group</h1>
+                    <button type="button" class="btn btn-lg dl-btn"><i class="fab fa-apple"></i> Download</button>
+                    <button type="button" class="btn btn-lg dl-btn"><i class="fab fa-google-play"></i> Download</button>
                 </div>
                 <div class="col-md-6">
-                    <img src="images/phone-template.png" alt="An awesome paladin found via our app">
+                    <img class="main-img" src="images/phone-template.png" alt="An awesome paladin found via our app">
                 </div>
             </div>
         </div>
     </section>
     <section id="features">
         <div class="container-fluid">
-            <h2>Easy to use</h2>
-            <p>So easy, even an orc can do it.</p>
-            <h2>Extensive background checks</h2>
-            <p>Find out how a potential party member has performed in their previous groups,</p>
-            <h2>100% guaranteed</h2>
-            <p>If you're unhappy, we're unhappy and will glady return your gold.</p>
+            <h2><i class="far fa-check-circle feature"></i> Easy to use</h2>
+            <p>So easy, even an orc can do it</p>
+            <h2><i class="far fa-check-circle feature"></i> Extensive background checks</h2>
+            <p>Find out how a potential party member has performed in their previous groups</p>
+            <h2><i class="far fa-check-circle feature"></i> 100% guaranteed</h2>
+            <p>If you're unhappy, we're unhappy and will glady return your gold</p>
         </div>
     </section>
     <section id="testimonials">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-4">
-                    <p>After weeks of searching, I finally found a healer that my pet didn't want to eat.</p>
-                    <img class="img-fluid" src="images/Saliska.jpg" alt="hunter photo">
-                    <em>Saliska, Silvermoon City</em>
+        <div id="testimonial-carousel" class="carousel slide" data-ride="false" data-interval="3000">
+            <ol class="carousel-indicators">
+                <li data-target="#testimonial-carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#testimonial-carousel" data-slide-to="1"></li>
+                <li data-target="#testimonial-carousel" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <h3>After weeks of searching, I finally found a healer that my pet didn't want to eat.</h3>
+                    <img class="testimonial-img" src="images/Saliska.jpg" alt="hunter photo">
+                    <p class="testimonial-caption">Saliska, Silvermoon City</p>
                 </div>
-                <div class="col-md-4">
-                    <p>With LFG, I was able to join up with an exceptional tank. My days of being beaten and bloodied
-                        due to incompetent oafs are over.</p>
-                    <img class="img-fluid" src="images/Lucya.jpg" alt="mage photo">
-                    <em>Lucya, Darnassus</em>
+                <div class="carousel-item">
+                    <h3>With LFG, I was able to join up with an exceptional tank. My days of being beaten and
+                        bloodied
+                        due to incompetent oafs are over.</h3>
+                    <img class="testimonial-img" src="images/Lucya.jpg" alt="mage photo">
+                    <p class="testimonial-caption">Lucya, Darnassus</p>
                 </div>
-                <div class="col-md-4">
-                    <p>Didn't think it be possible but now I got a new best friend to stab things for me. I be thanking'
-                        ya, LFG!</p>
-                    <img class="img-fluid" src="images/Jisheha.jpg" alt="druid photo">
-                    <em>Jisheha, Darkspear Village</em>
+                <div class="carousel-item">
+                    <h3>Didn't think it be possible but now I got a new best friend to stab things for me. I be
+                        thankin'
+                        ya, LFG!</h3>
+                    <img class="testimonial-img" src="images/Jisheha.jpg" alt="druid photo">
+                    <p class="testimonial-caption">Jisheha, Darkspear Village</p>
                 </div>
             </div>
+            <a class="carousel-control-prev" href="#testimonial-carousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#testimonial-carousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
     </section>
     <section id="press">
         <div class="container-fluid">
-
+            <div class="row press">
+                <div class="col-lg-3 col-sm-6"><img class="press-img" src="images/TechCrunch.png" alt="Tech Crunch">
+                </div>
+                <div class="col-lg-3 col-sm-6"><img class="press-img" src="images/tnw.png" alt="Tech Crunch"></div>
+                <div class="col-lg-3 col-sm-6"><img class="press-img" src="images/bizinsider.png" alt="Tech Crunch">
+                </div>
+                <div class="col-lg-3 col-sm-6"><img class="press-img" src="images/mashable.png" alt="Tech Crunch"></div>
+            </div>
         </div>
-
     </section>
     <section id="pricing">
         <div class="container-fluid">

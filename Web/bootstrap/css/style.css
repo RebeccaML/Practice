@@ -1,7 +1,16 @@
+/* Colors: #800B2C (red)
+        #52051A (dark red)
+        #ECC0CD (pink)
+        #F7E1E7 (pale pink) */
+
+
 body {
   font-family: "Source Serif Pro", serif;
+  font-size: 18px;
   text-align: center;
 }
+
+/* Navigation */
 
 nav {
   background-color: #800B2C;
@@ -27,7 +36,7 @@ nav {
 }
 
 .navbar-brand:hover {
-  color: #F7E1E7;;
+  color: #F7E1E7;
 }
 
 .navbar-toggler-icon {
@@ -38,6 +47,8 @@ nav {
   border-color: #ECC0CD;
 }
 
+/* Sections */
+
 .container-fluid {
   padding: 60px 20px;
 }
@@ -47,31 +58,95 @@ nav {
   margin-top: 50px;
 }
 
-#title img {
+#testimonials {
+  background-color: #F7E1E7;
+}
+
+#pricing {
+  background-color: #F7E1E7;
+}
+
+/* Title */
+
+.main-img {
   transform: rotate(20deg);
   margin: 50px;
   width: 50%;
 }
 
 @media (max-width: 1000px) {
-  #title img {
+  .main-img {
     width: 65%;
   }
 }
 
-#title h1 {
-  padding: 10px;
+h1 {
+  padding: 20px;
 }
 
-#title button {
+.dl-btn {
   margin: 10px;
+  background-color: #800B2C;
+  color: #ECC0CD;
 }
 
-#testimonials {
-  background-color: #F7E1E7;
+.dl-btn:hover {
+  background-color: #52051A;
 }
 
-#testimonials img {
-  border-radius: 50%;
+/* Features */
+
+.feature {
+  color: #800B2C;
+}
+
+h2 {
+  padding-bottom: 10px;
+}
+
+/* Testimonials */
+
+h3 {
+  display: inline-block;
   width: 50%;
+}
+
+.testimonial-img {
+  border-radius: 50%;
+  height: 30%;
+  padding: 20px;
+}
+
+.testimonial-caption {
+  font-style: italic;
+  display: inline-block;
+}
+
+.carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2352051A' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+}
+
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2352051A' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+}
+.carousel-indicators li {
+  background-color: #52051A;
+}
+.carousel-indicators .active {
+  background-color: #52051A;
+  opacity: .5;
+}
+.carousel-indicators li:hover {
+  opacity: .5;
+}
+/* Press */
+
+.press {
+  width: 80%;
+  margin: auto;
+}
+
+.press-img {
+  width: 80%;
+  margin: 10px 20px;
 }

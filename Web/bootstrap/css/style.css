@@ -64,6 +64,7 @@ nav {
 
 #pricing {
   background-color: #F7E1E7;
+  padding: 20px;
 }
 
 /* Title */
@@ -109,17 +110,19 @@ h2 {
 h3 {
   display: inline-block;
   width: 50%;
+  padding: 20px;
 }
 
 .testimonial-img {
   border-radius: 50%;
   height: 30%;
-  padding: 20px;
+  padding: 40px 20px;
 }
 
 .testimonial-caption {
   font-style: italic;
   display: inline-block;
+  padding: 0 20px 20px 20px;
 }
 
 .carousel-control-prev-icon {
@@ -131,13 +134,14 @@ h3 {
 }
 .carousel-indicators li {
   background-color: #52051A;
+  opacity: .5;
 }
 .carousel-indicators .active {
   background-color: #52051A;
-  opacity: .5;
+  opacity: 1;
 }
 .carousel-indicators li:hover {
-  opacity: .5;
+  opacity: 1;
 }
 /* Press */
 
@@ -149,4 +153,53 @@ h3 {
 .press-img {
   width: 80%;
   margin: 10px 20px;
+}
+
+/* Pricing */
+#pricing h2 {
+  font-size: 2.4rem;
+  padding: 20px 0;
+}
+
+.card {
+  height: 100%;
+  border: 1px solid #800B2C;
+}
+
+.card-header {
+  border-bottom: 1px solid #800B2C;
+}
+
+h3 {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.card-title {
+  padding: 20px 0;
+  font-size: 2rem;
+  font-weight: bold;
+
+}
+
+.price-block {
+  padding: 30px;
+}
+
+.price-btn {
+  border: 1px solid #800B2C;
+  background-color: #ECC0CD;
+  color: #800B2C;
+}
+
+.price-btn:hover {
+  background-color: #F7E1E7;
+}
+
+/* Footer */
+
+footer {
+  background-color: #800B2C;
+  color: #ECC0CD;
+  padding: 10px;
 }

@@ -53,6 +53,22 @@ nav {
   padding: 60px 20px;
 }
 
+.title-container {
+  padding-bottom: 15%;
+}
+
+@media (max-width: 770px) {
+  .title-container {
+    padding-bottom: 70%;
+  }
+}
+
+
+#features {
+  background-color: #FFFFFF;
+  position: relative;
+}
+
 #title {
   background-color: #F7E1E7;
   margin-top: 50px;
@@ -73,6 +89,8 @@ nav {
   transform: rotate(20deg);
   margin: 50px;
   width: 50%;
+  position: absolute;
+  right: 15%;
 }
 
 @media (max-width: 1000px) {
@@ -83,6 +101,13 @@ nav {
 
 h1 {
   padding: 20px;
+  margin-top: 20%;
+}
+
+@media (max-width: 1000px) {
+  h1 {
+    margin-top: 0;
+  }
 }
 
 .dl-btn {

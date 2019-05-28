@@ -1,23 +1,77 @@
+body {
+  font-family: "Source Serif Pro", serif;
+  text-align: center;
+}
+
 nav {
-    background-color: #800B2C;
+  background-color: #800B2C;
 }
 
-nav a {
-    color: #ECC0CD;
+.nav-item {
+  padding: 0 10px;
 }
 
-nav a:hover {
-    color: #F7E1E7;
+.nav-link {
+  color: #ECC0CD;
+  font-size: 1.2rem;
+}
+
+.nav-link:hover {
+  color: #F7E1E7;
+}
+
+.navbar-brand {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #ECC0CD;
+}
+
+.navbar-brand:hover {
+  color: #F7E1E7;;
 }
 
 .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(236,192,205)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-  }
-  
-.navbar-toggler {
-    border-color: #ECC0CD;
-  } 
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(236,192,205)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
 
-h1 {
-    margin-top: 65px;
+.navbar-toggler {
+  border-color: #ECC0CD;
+}
+
+.container-fluid {
+  padding: 60px 20px;
+}
+
+#title {
+  background-color: #F7E1E7;
+  margin-top: 50px;
+}
+
+#title img {
+  transform: rotate(20deg);
+  margin: 50px;
+  width: 50%;
+}
+
+@media (max-width: 1000px) {
+  #title img {
+    width: 65%;
+  }
+}
+
+#title h1 {
+  padding: 10px;
+}
+
+#title button {
+  margin: 10px;
+}
+
+#testimonials {
+  background-color: #F7E1E7;
+}
+
+#testimonials img {
+  border-radius: 50%;
+  width: 50%;
 }

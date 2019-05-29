@@ -10,7 +10,7 @@
 # think of a reason it would not work for all cases.
 # Answer is linkedlist.
 
-inputFile = open("pc#3.txt")
+inputFile = open("text/pc#3.txt")
 file_string = inputFile.read()
 inputFile.close() # Done with the file
 file_string = file_string.replace("\n", "") # Get rid of white space

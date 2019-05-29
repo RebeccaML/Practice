@@ -3,7 +3,7 @@
 # Answer is equality
 
 # Opens the file
-inputFile = open("pc#2.txt")
+inputFile = open("text/pc#2.txt")
 file_string = inputFile.read()
 inputFile.close() # Seems like it's just good practice to close the file when done
 uniqueChars = [] # List to contain every unique character in the file

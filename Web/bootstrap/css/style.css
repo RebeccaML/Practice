@@ -238,8 +238,22 @@ h3 {
 
 /* Footer */
 
-footer {
+#footer {
   background-color: #800B2C;
   color: #ECC0CD;
-  padding: 10px;
+  padding: 5px;
+}
+
+.social-media {
+  font-size: 1.7em;
+  padding: 10px 5px;
+}
+
+a {
+  color: #ECC0CD;
+  font-size: 1.2rem;
+}
+
+a:hover {
+  color: #F7E1E7;
 }

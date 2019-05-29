@@ -1,0 +1,1 @@
+All of these mini-projects were made by following the tutorials at https://javascript30.com/

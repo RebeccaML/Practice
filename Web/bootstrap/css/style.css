@@ -136,6 +136,7 @@ h3 {
   display: inline-block;
   width: 50%;
   padding: 20px;
+  margin-left: 50px;
 }
 
 .testimonial-img {
@@ -148,6 +149,20 @@ h3 {
   font-style: italic;
   display: inline-block;
   padding: 0 20px 20px 20px;
+  margin-right: 50px;
+}
+
+@media (max-width: 750px) {
+  h3 {
+    width: 100%;
+    margin-left: 0;
+  }
+  .testimonial-img {
+    margin: 0 50px;
+  }
+  .testimonial-caption {
+    margin-right: 0;
+  }
 }
 
 .carousel-control-prev-icon {

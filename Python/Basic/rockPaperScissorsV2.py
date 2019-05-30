@@ -1,11 +1,11 @@
 # Project from https://www.udemy.com/the-modern-python3-bootcamp/
 # One player version against computer oponent
-import random
+from random import randint
 
 print("Let's play 'Rock, Paper, Scissors!'")
 
 choice = input("Enter your choice: ").lower()
-computer = random.randint(0, 2)
+computer = randint(0, 2)
 if computer == 0:
     computer = "rock"
 elif computer == 1:

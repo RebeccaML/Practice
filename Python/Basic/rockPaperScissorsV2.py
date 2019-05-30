@@ -19,17 +19,17 @@ if choice == computer:
 elif choice == "rock":
     if computer == "paper":
         print("Paper covers rock. You lose!")
-    elif computer == "scissors":
+    else:
         print("Rock crushes scissors. You win!")
 elif choice == "paper":
     if computer == "scissors":
         print("Scissors cut paper. You lose!")
-    elif computer == "rock":
+    else:
         print("Paper covers rock. You win!")
 elif choice == "scissors":
     if computer == "rock":
         print("Rock crushes scissors. You lose!")
-    elif computer == "paper":
+    else:
         print("Scissors cut paper. You win!")
 else:
     print("Valid inputs: rock, paper, scissors. Please try again.")

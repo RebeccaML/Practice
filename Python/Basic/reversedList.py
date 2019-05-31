@@ -1,4 +1,5 @@
 # Codecademy exercise that I'm keeping for future reference
+# Just found out there's a method for reversing lists...it just wasn't taught
 
 # Create a function named reversed_list() that takes two lists of the same size as parameters named lst1 and lst2.
 

@@ -3,7 +3,7 @@
 hairstyles = ["bouffant", "pixie", "dreadlocks",
               "crew", "bowl", "bob", "mohawk", "flattop"]
 prices = [30, 25, 40, 20, 20, 35, 50, 35]
-last_week = [2, 3, 5, 8, 4, 4, 6, 2] # Meant to represent the number of customers that got eat kind of haircut
+last_week = [2, 3, 5, 8, 4, 4, 6, 2] # Meant to represent the number of customers that got each kind of haircut
 
 total_price = 0
 total_revenue = 0

@@ -5,16 +5,13 @@
 
 def fibonacciGenerator(n):
     numbers = []
-    count = 0
     for i in range(n):
-        if count == 0:
-            numbers.append(count)
-            count += 1
-        elif count == 1 and len(numbers) == 1:
-            numbers.append(count)
+        if i == 0:
+            numbers.append(i)
+        elif i == 1:
+            numbers.append(i)
         else:
-            count = numbers[i-2] + numbers[i-1]
-            numbers.append(count)
+            numbers.append(numbers[i-2] + numbers[i-1])
     return numbers
 
 print(fibonacciGenerator(int(input("Enter a number: "))))

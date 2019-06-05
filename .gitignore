@@ -1,6 +1,5 @@
 Python/.vscode/settings.json
 Web/fullstack_template/static/node_modules/
 Web/tic-tac-toe/node_modules/
-Web/fullstack_template/static/package-lock.json
 Web/.vscode/settings.json
-Web/tic-tac-toe/package-lock.json
+Web/node-intro/node_modules/

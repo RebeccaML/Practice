@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 
 // Following https://reactjs.org/tutorial/tutorial.html
+// npm start to load
 
 function Square(props) {
         return (

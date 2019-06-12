@@ -1,67 +1,93 @@
-const MongoClient = require("mongodb").MongoClient;
-const assert = require("assert");
+const mongoose = require("mongoose");
 
-// Connection URL
-const url = "mongodb://localhost:27017";
-
-// Database name. If it doesn't already exist, it will be created
-const dbName = "fruitsDB";
-
-// Create a new MongoClient
-const client = new MongoClient(url, {
+// Connect to the MongoDB server and switch to the fruitsDB
+// If it doesn't exist it will be created
+mongoose.connect("mongodb://localhost:27017/fruitsDB", {
     useNewUrlParser: true
 });
 
-// Use connect method to connect to the Server
-client.connect(function (err) {
-    assert.equal(null, err);
-    console.log("Connected successfully to server");
-
-    const db = client.db(dbName);
-    findDocuments(db, function () {
-        client.close();
-    });
+const fruitSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: [true, "You need to enter a name!"]
+    },
+    rating: {
+        type: Number,
+        min: 1,
+        max: 10
+    },
+    review: String
 });
 
-const insertDocuments = function (db, callback) {
-    // Get the documents collection
-    const collection = db.collection("fruits");
-    // Insert some documents
-    collection.insertMany([{
-                name: "Apple",
-                score: 8,
-                review: "Great fruit"
-            },
-            {
-                name: "Orange",
-                score: 8,
-                review: "Pretty good"
-            },
-            {
-                name: "Banana",
-                score: 1,
-                review: "Gross!"
-            }
-        ],
-        function (err, result) {
-            // Make sure there are no errors
-            assert.equal(err, null);
-            // Make sure we have three results
-            assert.equal(3, result.result.n);
-            assert.equal(3, result.ops.length);
-            console.log("Inserted 3 documents into the collection");
-            callback(result);
-        });
-};
+const Fruit = mongoose.model("Fruit", fruitSchema);
 
-const findDocuments = function (db, callback) {
-    // Get the documents collectio
-    const collection = db.collection("fruits");
-    // Find some documents
-    collection.find({}).toArray(function (err, fruits) {
-        assert.equal(err, null);
-        console.log("Found the following records");
-        console.log(fruits);
-        callback(fruits);
-    });
-};
+const orange = new Fruit({
+    name: "Orange",
+    rating: 6,
+    review: "An alright fruit."
+});
+
+orange.save();
+
+Fruit.find(function (err, fruits) {
+    if (err) {
+        console.log(err);
+    } else {
+        mongoose.connection.close();
+        fruits.forEach(function (fruit) {
+            console.log(fruit.name);
+        });
+    }
+});
+
+// Fruit.updateOne({
+//     _id: "5d01770bc7e1fd28f47a2aa0"
+// }, {
+//     name: "Strawberry",
+//     rating: 9,
+//     review: "Strawberries are delicious"
+// }, function (err) {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         console.log("Successfully updated the document.")
+//     }
+// });
+
+//Use deleteMany instead to select all matching documents
+// Fruit.deleteOne({name: "Raspberry"}, function(err) {
+//     if (err) {
+//         console.log(err);
+//     }
+//     else {
+//         console.log("Successfully deleted the document.");
+//     }
+// });
+
+const personSchema = new mongoose.Schema({
+    name: String,
+    age: Number,
+    favouriteFruit: fruitSchema
+});
+
+const Person = mongoose.model("Person", personSchema);
+
+// const person = new Person({
+//      name: "Amy",
+//      age: 24,
+//      favouriteFruit: passionfruit
+//  });
+
+//person.save();
+
+Person.updateOne({
+    _id: "5d0178549a24cd28b4889c85"
+}, {
+    favouriteFruit: orange
+}, function (err) {
+    if (err) {
+        console.log(err);
+    } else {
+        console.log("Successfully updated the document.")
+    }
+});

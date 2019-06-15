@@ -3,6 +3,8 @@
 # They have to guess who said the quote and each time they fail they are given a hint
 # They get three hints - first is the author's birth date and location, then first initial,
 # then last.
+# A list of dictionaries is created containing the following keys: quote, title, link.
+# The link is a link to the quote author's bio and is used in the get_hint function.
 
 import requests
 from bs4 import BeautifulSoup

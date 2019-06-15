@@ -1,6 +1,5 @@
 # Learning how to do HTTP requests in Python
-# Apart from the initial setup (stuff found in first_request.py and params.py)
-# I did this myself
+# Apart from the initial setup (stuff found in first_request.py and params.py) I did this myself
 
 import requests
 from random import choice

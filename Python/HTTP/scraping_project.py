@@ -1,4 +1,5 @@
 # Project from https://www.udemy.com/the-modern-python3-bootcamp/
+# Written myself to specifications provided
 # The user is given a quote picked randomly from http://quote.toscrape.com
 # They have to guess who said the quote and each time they fail they are given a hint
 # They get three hints - first is the author's birth date and location, then first initial,

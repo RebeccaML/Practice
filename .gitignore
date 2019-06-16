@@ -17,3 +17,7 @@ Python/Games/__pycache__/
 
 Python/Basic/text/
 Python/HTTP/blog_data.csv
+Python/HTTP/quotes.csv
+
+Python/HTTP/__pycache__/book_scraper.cpython-37.pyc
+Python/HTTP/books.csv

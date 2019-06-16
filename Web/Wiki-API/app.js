@@ -13,7 +13,8 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static("public"));
 mongoose.connect("mongodb://localhost:27017/wikiDB", {
-    useNewUrlParser: true
+    useNewUrlParser: true,
+    useFindAndModify: false
 });
 
 const articleSchema = new mongoose.Schema({
@@ -23,29 +24,101 @@ const articleSchema = new mongoose.Schema({
 
 const Article = mongoose.model("article", articleSchema);
 
-app.get("/articles", function (req, res) {
-    Article.find({}, function (err, foundArticles) {
-        if (!err) {
-            res.send(foundArticles);
-        } else {
-            res.send(err);
-        }
-    });
-});
+//Requests targeting all articles
 
-app.post("/articles", function (req, res) {
-    const newArticle = new Article({
-        title: req.body.title,
-        content: req.body.content
+app.route("/articles")
+    .get(function (req, res) {
+        Article.find({}, function (err, foundArticles) {
+            if (!err) {
+                res.send(foundArticles);
+            } else {
+                res.send(err);
+            }
+        });
+    })
+    .post(function (req, res) {
+        const newArticle = new Article({
+            title: req.body.title,
+            content: req.body.content
+        });
+        newArticle.save(function (err) {
+            if (!err) {
+                res.send("New article successfully saved.");
+            } else {
+                res.send(err);
+            }
+        });
+    })
+    .delete(function (req, res) {
+        Article.deleteMany(function (err) {
+            if (!err) {
+                res.send("Successfully deleted all articles.");
+            } else {
+                res.send(err);
+            }
+        });
     });
-    newArticle.save(function (err) {
-        if (!err) {
-            res.send("New article successfully saved.");
-        } else {
-            res.send(err);
-        }
+
+//Requests targeting a specific article
+
+app.route("/articles/:articleTitle")
+    .get(function (req, res) {
+        Article.findOne({
+            title: req.params.articleTitle
+        }, function (err, foundArticle) {
+            if (!err) {
+                res.send(foundArticle);
+            } else {
+                res.send("No article matching that title was found.");
+            }
+        });
+    })
+    .put(function (req, res) {
+        Article.findOneAndUpdate({
+                title: req.params.articleTitle
+            }, {
+                $set: {
+                    title: req.body.title,
+                    content: req.body.content
+                }
+            }, {
+                overwrite: true
+            },
+            function (err, article) {
+                if (!err) {
+                    res.send("Successfully updated article.");
+                } else {
+                    res.send(err);
+                }
+            });
+    })
+    .patch(function (req, res) {
+        Article.findOneAndUpdate({
+                title: req.params.articleTitle
+            }, {
+                $set: {
+                    title: req.body.title,
+                    content: req.body.content
+                }
+            },
+            function (err, article) {
+                if (!err) {
+                    res.send("Successfully updated article.");
+                } else {
+                    res.send(err);
+                }
+            });
+    })
+    .delete(function (req, res) {
+        Article.deleteOne({title: req.params.articleTitle}, function(err) {
+            if (!err) {
+                res.send("Successfully deleted article.");
+            }
+            else {
+                res.send(err);
+            }
+        });
     });
-});
 
 app.listen(3000, function () {
     console.log("Server started on port 3000.")

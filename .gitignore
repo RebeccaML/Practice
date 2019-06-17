@@ -21,3 +21,5 @@ Python/HTTP/quotes.csv
 
 Python/HTTP/__pycache__/book_scraper.cpython-37.pyc
 Python/HTTP/books.csv
+Web/Secrets/node_modules/
+Web/Secrets/.env

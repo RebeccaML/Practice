@@ -72,7 +72,7 @@ class BookInstance(models.Model):
 
     def __str__(self):
         """String for representing the Model object."""
-        return f'{self.id} ({self.book.title})'
+        return f'{self.id} ({self.book.title}, {self.status}, {self.due_back})'
 
 class Author(models.Model):
     """Model representing an author."""

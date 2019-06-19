@@ -1,3 +1,5 @@
+# Exercise from https://www.udemy.com/the-modern-python3-bootcamp/
+
 import re
 
 url_regex = re.compile(r"(https?)://(www\.[A-Za-z-]{2,256}\.[a-z]{2,6})([-a-zA-Z0-9@:%_\+.~#?&//=]*)")

@@ -5,7 +5,7 @@ conn = sqlite3.connect("my_friends.db")
 c = conn.cursor()
 
 # c.execute("CREATE TABLE friends (first_name TEXT, last_name TEXT, closeness INTEGER);")
-# insert_query = '''INSERT INTO friends VALUES
+# insert_query = '''INSERT INTO my_friends VALUES
 #                     ('Buffy', 'Summers', 8)'''
 # BAD WAY
 # form_first = "Willow""

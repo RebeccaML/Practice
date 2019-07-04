@@ -1,0 +1,62 @@
+html {
+    background-color: #DEE8F3;
+    padding: 75px;
+    font-size: 18px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: #42105B;
+    font-size: 2.2rem;
+}
+
+h2 {
+    text-align: center;
+    color: #1D0529;
+    font-size: 1.7rem;
+}
+
+.yes, .no {
+    padding: 10px;
+    margin: 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #111758;
+    background-color: #111758;
+    color: #DEE8F3;
+}
+
+.yes:hover, .no:hover {
+    cursor: pointer;
+    background-color: #040831;
+}
+
+.hidden {
+    display: none;
+}
+
+.buttons {
+    text-align: center;
+}
+
+.choice {
+    padding: 10px;
+    margin: 20px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: 1px solid #42105B;
+    background-color: #F4E9F6;
+    color: #42105B;
+}
+
+.choice:hover {
+    cursor: pointer;
+    background-color: #42105B;
+    color: #F4E9F6;
+}
+
+p {
+    padding: 10px;
+    text-align: center;
+}

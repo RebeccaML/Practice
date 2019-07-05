@@ -3,7 +3,6 @@ const reset = document.querySelector("#reset");
 const changeSize = document.querySelector("#size");
 let size = prompt("How many squares per side do you want for your grid?");
 var gridBoxes;
-createGrid(size);
 
 function createGrid(size) {
     grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
@@ -35,3 +34,5 @@ changeSize.addEventListener('click', (e) => {
     size = prompt("How many squares per side do you want for your grid?");
     createGrid(size)
 });
+
+createGrid(size);

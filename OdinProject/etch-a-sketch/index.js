@@ -1,16 +1,30 @@
 const grid = document.querySelector("#grid");
+const button = document.querySelector("button");
+let size = prompt("How many squares per side do you want for your grid?");
+var gridBoxes;
+createGrid(size);
 
-for (let i = 0; i < 50 * 50; i++) {
-    let div = document.createElement('div');
-    div.classList.add("gridBox");
-    grid.appendChild(div);
+function createGrid(size) {
+    grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+    grid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+
+    for (let i = 0; i < size * size; i++) {
+        let div = document.createElement('div');
+        div.classList.add("gridBox");
+        grid.appendChild(div);
+    }
+    gridBoxes = document.querySelectorAll(".gridBox");
+    gridBoxes.forEach((gridBox) => {
+        gridBox.addEventListener('mouseover', (e) => {
+            gridBox.classList.add("active");
+        });
+    });
 }
 
-const gridBoxes = document.querySelectorAll(".gridBox");
-
-gridBoxes.forEach((gridBox) => {
-    gridBox.addEventListener('mouseover', (e) => {
-        gridBox.classList.toggle("active");
+button.addEventListener('click', (e) => {
+    gridBoxes.forEach((gridBox) => {
+        gridBox.classList.remove("active");
     });
+    size = prompt("How many squares per side do you want for your grid?");
+    createGrid(size)
 });
-

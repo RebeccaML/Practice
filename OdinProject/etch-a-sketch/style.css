@@ -1,0 +1,30 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+}
+
+#grid {
+    display: grid;
+    width: 800px;
+    height: 800px;
+    grid-template-columns: repeat(50, auto);
+    grid-template-rows: repeat(50, auto);
+    grid-gap: 0;
+    justify-items: stretch;
+    margin: auto;
+    border: 1px solid black;
+    overflow: auto;
+}
+
+.gridBox {
+    width: 15px;
+    height: 15px;
+}
+
+.active {
+    background-color: magenta;
+}

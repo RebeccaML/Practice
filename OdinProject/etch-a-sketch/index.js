@@ -1,5 +1,6 @@
 const grid = document.querySelector("#grid");
-const button = document.querySelector("button");
+const reset = document.querySelector("#reset");
+const changeSize = document.querySelector("#size");
 let size = prompt("How many squares per side do you want for your grid?");
 var gridBoxes;
 createGrid(size);
@@ -21,7 +22,13 @@ function createGrid(size) {
     });
 }
 
-button.addEventListener('click', (e) => {
+reset.addEventListener('click', (e) => {
+    gridBoxes.forEach((gridBox) => {
+        gridBox.classList.remove("active");
+    });
+});
+
+changeSize.addEventListener('click', (e) => {
     gridBoxes.forEach((gridBox) => {
         gridBox.classList.remove("active");
     });

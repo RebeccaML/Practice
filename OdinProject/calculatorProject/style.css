@@ -1,0 +1,48 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    padding: 20px;
+}
+
+.container {
+    width: 250px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 3fr 1fr;
+    border: 1px black solid;
+    border-radius: 6px;
+}
+
+#display {
+    border: 1px solid black;
+    height: 40px;
+    margin: 20px 0 10px 0;
+    grid-area: 1 / 1 / span 5 / span 4;
+    text-align: right;
+    font-size: 1.5rem;
+    padding: 0 5px;
+}
+
+.operations {
+    margin: 10px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 5px;
+}
+
+.numbers {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-columns: repeat(3, auto);
+    grid-gap: 5px;
+    margin-bottom: 10px;
+}
+
+#clear {
+    grid-column: 2 / span 2;
+}

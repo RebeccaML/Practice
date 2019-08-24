@@ -3,23 +3,33 @@ const notes = [{
     body: "I would like to go to Finland"
 },
 {
-    title: "To buy",
+    title: "to buy",
     body: "Lame, coffee, dutch oven"
+},
+{
+    title: "More",
+    body: "Just do more"
 },
 {
     title: "To write",
     body: "Fan fiction"
 }];
 
-// notes.pop();
-// notes.push("My new note");
+const sortNotes = function(notes) {
+    notes.sort(function(a, b) {
+        if (a.title.toLowerCase() < b.title.toLowerCase()) {
+            return -1;
+        }
+        else if (b.title.toLowerCase() < a.title.toLowerCase()) { 
+            return 1;
+        }
+        else {
+            return 0;
+        }
+    });
+};
 
-// notes.shift();
-// notes.unshift("My new first note");
-
-// notes.splice(1, 2);
-
-// notes[2] = "This is now the new note 3";
+sortNotes(notes);
 
 // notes.forEach(function(item, index) {
 //     console.log(item + " " + index);
@@ -27,9 +37,6 @@ const notes = [{
 
 console.log(notes.length);
 console.log(notes);
-// console.log(notes[0]);
-// console.log(notes[notes.length-1])
-// console.log(notes.indexOf("Note"));
 
 // for (let i = 0; i < notes.length; i++) {
 //     console.log(notes[i]);

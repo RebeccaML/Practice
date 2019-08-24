@@ -38,13 +38,22 @@ const findIncomplete = function(todoList) {
 
 console.log(findIncomplete(todoList));
 
-// todoList.splice(2, 1);
-// todoList.push("Eat");
-// todoList.shift();
+const sortTodos = function(todoList) {
+    todoList.sort(function(a, b) {
+        if (!a.completed && b.completed) {
+            return -1;
+        }
+        else if (a.completed && !b.completed) {
+            return 1;
+        }
+        else {
+            return 0;
+        }
+    });
+}
 
-// console.log(`Todo: ${todoList[0]}.`);
-// console.log(`Todo: ${todoList[todoList.length -1]}.`);
-// console.log(`You have ${todoList.length} things to do.`)
+sortTodos(todoList);
+console.log(todoList);
 
 // todoList.forEach(function(todo, index) {
 //     const num = index + 1;

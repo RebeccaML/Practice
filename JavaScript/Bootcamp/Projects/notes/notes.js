@@ -20,6 +20,18 @@ const filters = {
     searchText: ""
 };
 
+// const user = {
+//     name: "Rebecca",
+//     age: 31
+// }
+// const userJSON = JSON.stringify(user);
+// console.log(userJSON);
+// localStorage.setItem("user", userJSON);
+
+const userJSON = localStorage.getItem("user");
+const user = JSON.parse(userJSON);
+console.log(`${user.name} is ${user.age}`);
+
 const renderNotes = function(notes, filters) {
     const filteredNotes = notes.filter(function(note) {
         return note.title.toLowerCase().includes(filters.searchText.toLowerCase());
@@ -46,20 +58,7 @@ document.querySelector("#search-text").addEventListener("input", function (e) {
     renderNotes(notes, filters);
 });
 
-document.querySelector("#name-form").addEventListener("submit", function(e) {
-    e.preventDefault();
-    console.log(e.target.elements.firstName.value);
-    e.target.elements.firstName.value = "";
+
+document.querySelector("#filter-by").addEventListener("change", function(e) {
+    console.log(e.target.value);
 });
-
-// const paragraphs = document.querySelectorAll("p");
-// paragraphs.forEach(function(p) {
-//     console.log(p);
-// });
-// paragraphs.forEach(function(p) {
-//     p.textContent = "Censored!";
-// });
-
-// const newParagraph = document.createElement("p");
-// newParagraph.textContent = "This is a new element created with JavaScript.";
-// document.body.appendChild(newParagraph);

@@ -11,13 +11,14 @@
 <body>
     <h1>Notes</h1>
     <h2>Things to remember</h2>
-    <input type="text" id="search-text">
+    <label>Search: <input type="text" id="search-text" placeholder="Filter notes"></label>
+    <select id="filter-by">
+        <option value="byEdited">Sort by last edited</option>
+        <option value="byCreated">Sort by recently created</option>
+        <option value="alphabetical">Sort alphabetically</option>
+    </select>
     <div id="notes"></div>
     <button id="create-note">Create note</button>
-    <form id="name-form">
-        <input type="text" placeholder="First name" name="firstName">
-        <button>Submit</button>
-    </form>
     <noscript>
         <p>Please turn on JavaScript!</p>
     </noscript>

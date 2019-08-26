@@ -21,25 +21,28 @@ const todoList = [{
 ];
 
 const filters = {
-    searchText: ""
+    searchText: "",
+    hideComplete: false
 };
 
 const renderItems = function (todoList, filters) {
     const filteredItems = todoList.filter(function (item) {
-        return item.text.toLowerCase().includes(filters.searchText.toLowerCase());
+        const searchMatch = item.text.toLowerCase().includes(filters.searchText.toLowerCase());
+        const hideMatch = !filters.hideComplete || !item.completed;
+        return searchMatch && hideMatch;
     });
 
-    const incomplete = filteredItems.filter(function (todo) {
-        return !todo.completed;
-    });
+    // const incomplete = filteredItems.filter(function (todo) {
+    //     return !todo.completed;
+    // });
 
     document.querySelector("#todo-list").innerHTML = "";
 
     const summary = document.createElement("h2");
-    summary.textContent = `You have ${incomplete.length} things left to do:`;
+    summary.textContent = `You have ${filteredItems.length} things left to do:`;
     document.querySelector("#todo-list").appendChild(summary);
 
-    incomplete.forEach(function (item) {
+    filteredItems.forEach(function (item) {
         const itemElement = document.createElement("p");
         itemElement.textContent = item.text;
         document.querySelector("#todo-list").appendChild(itemElement);
@@ -47,6 +50,11 @@ const renderItems = function (todoList, filters) {
 }
 
 renderItems(todoList, filters);
+
+document.querySelector("#hide-complete").addEventListener("change", function(e) {
+    filters.hideComplete = e.target.checked;
+    renderItems(todoList, filters);
+});
 
 document.querySelector("#search-text").addEventListener("input", function(e) {
     filters.searchText = e.target.value;

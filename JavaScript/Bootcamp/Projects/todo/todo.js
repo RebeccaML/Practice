@@ -48,15 +48,17 @@ const renderItems = function (todoList, filters) {
 
 renderItems(todoList, filters);
 
-document.querySelector("#add-item").addEventListener("click", function (e) {
-    console.log("Add");
-});
-
-document.querySelector("#new-item").addEventListener("input", function (e) {
-    console.log(e.target.value);
-});
-
-document.querySelector("#search-text").addEventListener("input", function (e) {
+document.querySelector("#search-text").addEventListener("input", function(e) {
     filters.searchText = e.target.value;
+    renderItems(todoList, filters);
+});
+
+document.querySelector("#add").addEventListener("submit", function(e) {
+    e.preventDefault();
+    todoList.push({
+        text: e.target.elements.chore.value,
+        completed: false 
+    });
+    e.target.elements.chore.value = "";
     renderItems(todoList, filters);
 });

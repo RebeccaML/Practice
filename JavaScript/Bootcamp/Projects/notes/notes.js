@@ -1,36 +1,14 @@
-const notes = [{
-        title: "My next trip",
-        body: "I would like to go to Finland"
-    },
-    {
-        title: "To buy",
-        body: "Lame, coffee, dutch oven"
-    },
-    {
-        title: "More",
-        body: "Just do more"
-    },
-    {
-        title: "To write",
-        body: "Fan fiction"
-    }
-];
+let notes = [];
 
 const filters = {
     searchText: ""
 };
 
-// const user = {
-//     name: "Rebecca",
-//     age: 31
-// }
-// const userJSON = JSON.stringify(user);
-// console.log(userJSON);
-// localStorage.setItem("user", userJSON);
+const notesJSON = localStorage.getItem("notes");
 
-const userJSON = localStorage.getItem("user");
-const user = JSON.parse(userJSON);
-console.log(`${user.name} is ${user.age}`);
+if (notesJSON !== null) {
+    notes = JSON.parse(notesJSON);
+}
 
 const renderNotes = function(notes, filters) {
     const filteredNotes = notes.filter(function(note) {
@@ -40,17 +18,23 @@ const renderNotes = function(notes, filters) {
     document.querySelector("#notes").innerHTML = "";
     filteredNotes.forEach(function(note) {
         const noteElement = document.createElement("p");
-        noteElement.textContent = note.title;
+        if (note.title.length > 0) {
+            noteElement.textContent = note.title;
+        }
+        else {
+            noteElement.textContent = "Unnamed note";
+        }
         document.querySelector("#notes").appendChild(noteElement);
     });
 };
 
-renderNotes(notes, filters);
-
 document.querySelector('#create-note').addEventListener("click", function (e) {
-    console.log("Test");
-    console.log(e);
-    e.target.textContent = "Button clicked";
+    notes.push({
+        title: "",
+        body: ""
+    });
+    localStorage.setItem("notes", JSON.stringify(notes));
+    renderNotes(notes, filters);
 });
 
 document.querySelector("#search-text").addEventListener("input", function (e) {
@@ -58,7 +42,8 @@ document.querySelector("#search-text").addEventListener("input", function (e) {
     renderNotes(notes, filters);
 });
 
-
 document.querySelector("#filter-by").addEventListener("change", function(e) {
     console.log(e.target.value);
 });
+
+renderNotes(notes, filters);

@@ -1,29 +1,15 @@
-const todoList = [{
-        text: "Finish chapter",
-        completed: false
-    },
-    {
-        text: "Publish chapter",
-        completed: false
-    },
-    {
-        text: "Eat lunch",
-        completed: true
-    },
-    {
-        text: "Make dinner",
-        completed: false
-    },
-    {
-        text: "Do JavaScript",
-        completed: true
-    }
-];
+let todoList = [];
 
 const filters = {
     searchText: "",
     hideComplete: false
 };
+
+const todoJSON = localStorage.getItem("todoList");
+
+if (todoJSON !== null) {
+    todoList = JSON.parse(todoJSON);
+}
 
 const renderItems = function (todoList, filters) {
     const filteredItems = todoList.filter(function (item) {
@@ -31,10 +17,6 @@ const renderItems = function (todoList, filters) {
         const hideMatch = !filters.hideComplete || !item.completed;
         return searchMatch && hideMatch;
     });
-
-    // const incomplete = filteredItems.filter(function (todo) {
-    //     return !todo.completed;
-    // });
 
     document.querySelector("#todo-list").innerHTML = "";
 
@@ -44,8 +26,8 @@ const renderItems = function (todoList, filters) {
 
     filteredItems.forEach(function (item) {
         const itemElement = document.createElement("p");
-        itemElement.textContent = item.text;
-        document.querySelector("#todo-list").appendChild(itemElement);
+            itemElement.textContent = item.text;
+            document.querySelector("#todo-list").appendChild(itemElement);
     });
 }
 
@@ -67,6 +49,7 @@ document.querySelector("#add").addEventListener("submit", function(e) {
         text: e.target.elements.chore.value,
         completed: false 
     });
-    e.target.elements.chore.value = "";
+    localStorage.setItem("todoList", JSON.stringify(todoList));
     renderItems(todoList, filters);
+    e.target.elements.chore.value = "";
 });

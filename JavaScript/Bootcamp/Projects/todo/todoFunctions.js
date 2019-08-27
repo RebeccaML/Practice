@@ -20,13 +20,10 @@ const renderItems = function (todoList, filters) {
     });
 
     document.querySelector("#todo-list").innerHTML = "";
-
-    const summary = generateSummaryDOM(filteredItems);
-    document.querySelector("#todo-list").appendChild(summary);
+    document.querySelector("#todo-list").appendChild(generateSummaryDOM(filteredItems));
 
     filteredItems.forEach(function (item) {
-        const itemElement = generateTodoDOM(item);
-        document.querySelector("#todo-list").appendChild(itemElement);
+        document.querySelector("#todo-list").appendChild(generateTodoDOM(item));
     });
 };
 

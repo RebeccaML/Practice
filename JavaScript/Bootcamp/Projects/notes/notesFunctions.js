@@ -1,3 +1,5 @@
+console.log(uuidv4());
+
 const getSavedNotes = function () {
     const notesJSON = localStorage.getItem("notes");
 
@@ -8,13 +10,39 @@ const getSavedNotes = function () {
     }
 };
 
-const generateNoteDOM = function (note) {
-    const noteElement = document.createElement("p");
-    if (note.title.length > 0) {
-        noteElement.textContent = note.title;
-    } else {
-        noteElement.textContent = "Unnamed note";
+const saveNotes = function(notes) {
+    localStorage.setItem("notes", JSON.stringify(notes));
+}
+
+const removeNote = function(id) {
+    const noteIndex = notes.findIndex(function(note) {
+        return note.id === id;
+    });
+
+    if (noteIndex > -1) {
+        notes.splice(noteIndex, 1);
     }
+};
+
+const generateNoteDOM = function (note) {
+    const noteElement = document.createElement("div");
+    const textElement = document.createElement("span");
+    const button = document.createElement("button");
+
+    button.textContent = "x";
+    noteElement.appendChild(button);
+    button.addEventListener("click", function() {
+        removeNote(note.id);
+        saveNotes(notes);
+        renderNotes(notes, filters);
+    });
+
+    if (note.title.length > 0) {
+        textElement.textContent = note.title;
+    } else {
+        textElement.textContent = "Unnamed note";
+    }
+    noteElement.appendChild(textElement);
     return noteElement;
 };
 

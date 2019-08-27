@@ -12,6 +12,15 @@ const saveList = function (todoList) {
     localStorage.setItem("todoList", JSON.stringify(todoList));
 };
 
+const removeItem = function(id) {
+    const itemIndex = todoList.findIndex(function (item) {
+        return item.id === id;
+    });
+    if (itemIndex > -1) {
+        todoList.splice(itemIndex, 1);
+    }
+};
+
 const renderItems = function (todoList, filters) {
     const filteredItems = todoList.filter(function (item) {
         const searchMatch = item.text.toLowerCase().includes(filters.searchText.toLowerCase());
@@ -28,8 +37,22 @@ const renderItems = function (todoList, filters) {
 };
 
 const generateTodoDOM = function (item) {
-    const itemElement = document.createElement("p");
-    itemElement.textContent = item.text;
+    const itemElement = document.createElement("div");
+    const checkbox = document.createElement("input");
+    const textElement = document.createElement("span");
+    const button = document.createElement("button");
+
+    checkbox.setAttribute("type", "checkbox");
+    button.textContent = "x";
+    textElement.textContent = item.text;
+    itemElement.appendChild(checkbox);
+    itemElement.appendChild(textElement);
+    itemElement.appendChild(button);
+    button.addEventListener("click", function() {
+        removeItem(item.id);
+        saveList(todoList);
+        renderItems(todoList, filters);
+    });
     return itemElement;
 };
 

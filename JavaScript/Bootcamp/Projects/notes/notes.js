@@ -6,10 +6,11 @@ const filters = {
 
 document.querySelector('#create-note').addEventListener("click", function (e) {
     notes.push({
+        id: uuidv4(),
         title: "",
         body: ""
     });
-    localStorage.setItem("notes", JSON.stringify(notes));
+    getSavedNotes(notes);
     renderNotes(notes, filters);
 });
 

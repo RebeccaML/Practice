@@ -20,6 +20,7 @@ document.querySelector("#search-text").addEventListener("input", function(e) {
 document.querySelector("#add").addEventListener("submit", function(e) {
     e.preventDefault();
     todoList.push({
+        id: uuidv4(),
         text: e.target.elements.chore.value,
         completed: false 
     });

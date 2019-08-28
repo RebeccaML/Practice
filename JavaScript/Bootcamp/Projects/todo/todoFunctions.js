@@ -28,8 +28,12 @@ const renderItems = function (todoList, filters) {
         return searchMatch && hideMatch;
     });
 
+    const incomplete = filteredItems.filter(function(item) {
+        return !item.completed;
+    });
+
     document.querySelector("#todo-list").innerHTML = "";
-    document.querySelector("#todo-list").appendChild(generateSummaryDOM(filteredItems));
+    document.querySelector("#todo-list").appendChild(generateSummaryDOM(incomplete));
 
     filteredItems.forEach(function (item) {
         document.querySelector("#todo-list").appendChild(generateTodoDOM(item));
@@ -43,11 +47,17 @@ const generateTodoDOM = function (item) {
     const button = document.createElement("button");
 
     checkbox.setAttribute("type", "checkbox");
+    checkbox.checked = item.completed;
     button.textContent = "x";
     textElement.textContent = item.text;
     itemElement.appendChild(checkbox);
     itemElement.appendChild(textElement);
     itemElement.appendChild(button);
+    checkbox.addEventListener("change", function() {
+        item.completed = checkbox.checked;
+        saveList(todoList);
+        renderItems(todoList, filters);
+    });
     button.addEventListener("click", function() {
         removeItem(item.id);
         saveList(todoList);

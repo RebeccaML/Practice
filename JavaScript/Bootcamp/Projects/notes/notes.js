@@ -9,7 +9,9 @@ document.querySelector('#create-note').addEventListener("click", function (e) {
     notes.push({
         id: id,
         title: "",
-        body: ""
+        body: "",
+        createdAt: moment().valueOf(),
+        updatedAt: moment().valueOf()
     });
     saveNotes(notes);
     location.assign(`/edit.html#${id}`);
@@ -32,3 +34,19 @@ window.addEventListener("storage", function(e) {
         renderNotes(notes, filters);
     }
 });
+
+// const dateOne = new Date("July 12 1988 3:00:00");
+// const dateTwo = new Date();
+// const dateOneTimestamp = dateOne.getTime();
+// const dateTwoTimestamp = dateTwo.getTime();
+
+// if (dateOne < dateTwo) {
+//     console.log(dateOne.toString());
+// }
+// else {
+//     console.log(dateTwo.toString());
+// }
+
+const bday = moment();
+bday.year(1988).month(6).date(12);
+console.log(bday.format("MMM D YYYY"));

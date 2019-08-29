@@ -1,6 +1,6 @@
 const getSavedList = () => {
     const todoJSON = localStorage.getItem("todoList");
-    return todoJSON !== null ? JSON.parse(todoJSON) : [];
+    return todoJSON ? JSON.parse(todoJSON) : [];
 };
 
 const saveList = (todoList) => {

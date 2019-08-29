@@ -7,17 +7,17 @@ const filters = {
 
 renderItems(todoList, filters);
 
-document.querySelector("#hide-complete").addEventListener("change", function(e) {
+document.querySelector("#hide-complete").addEventListener("change", (e) => {
     filters.hideComplete = e.target.checked;
     renderItems(todoList, filters);
 });
 
-document.querySelector("#search-text").addEventListener("input", function(e) {
+document.querySelector("#search-text").addEventListener("input", (e) => {
     filters.searchText = e.target.value;
     renderItems(todoList, filters);
 });
 
-document.querySelector("#add").addEventListener("submit", function(e) {
+document.querySelector("#add").addEventListener("submit", (e) => {
     e.preventDefault();
     todoList.push({
         id: uuidv4(),

@@ -1,3 +1,5 @@
+"use strict"
+
 let todoList = getSavedList();
 
 const filters = {

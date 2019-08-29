@@ -1,8 +1,14 @@
+"use strict"
+
 console.log(uuidv4());
 
 const getSavedNotes = () => {
     const notesJSON = localStorage.getItem("notes");
-    return notesJSON ? JSON.parse(notesJSON) : [];
+    try {
+        return notesJSON ? JSON.parse(notesJSON) : [];
+    } catch (e) {
+        return [];
+    }
 };
 
 const saveNotes = (notes) => {
@@ -51,29 +57,23 @@ const sortNotes = (notes, sortBy) => {
                 return 0;
             }
         });
-    }
-    else if (sortBy === "byCreated") {
+    } else if (sortBy === "byCreated") {
         return notes.sort((a, b) => {
             if (a.createdAt > b.createdAt) {
                 return -1;
-            }
-            else if (a.createdAt < b.createdAt) {
+            } else if (a.createdAt < b.createdAt) {
                 return 1;
-            }
-            else {
+            } else {
                 return 0;
             }
         });
-    }
-    else if (sortBy === "alphabetical") {
+    } else if (sortBy === "alphabetical") {
         return notes.sort((a, b) => {
             if (a.title.toLowerCase() < b.title.toLowerCase()) {
                 return -1;
-            }
-            else if (a.title.toLowerCase() > b.title.toLowerCase()) {
+            } else if (a.title.toLowerCase() > b.title.toLowerCase()) {
                 return 1;
-            }
-            else {
+            } else {
                 return 0;
             }
         })

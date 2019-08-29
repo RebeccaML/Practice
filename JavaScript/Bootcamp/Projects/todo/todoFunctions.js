@@ -1,3 +1,5 @@
+"use strict"
+
 const getSavedList = () => {
     const todoJSON = localStorage.getItem("todoList");
     return todoJSON ? JSON.parse(todoJSON) : [];

@@ -19,10 +19,23 @@ Person.prototype.setName = function(fullName) {
     this.lastName = names[1];
 };
 
-const me = new Person("Rebecca", "Lowe", 31, ["fighting", "Helm"]);
-me.setName("Ajantis Ilvastarr");
-console.log(me);
-console.log(me.getBio());
-const person2 = new Person("Silandra", "Candlekeep", 18);
+const person1 = new Person("Rebecca", "Lowe", 18, ["fighting", "Helm"]);
+person1.setName("Ajantis Ilvastarr");
+console.log(person1);
+console.log(person1.getBio());
+
+Person.prototype.getBio = function () {
+    return "Testing testing";
+}
+
+const person2 = new Person("Silandra", "Candlekeep", 18, ["Sorcery", "Mirrors"]);
 console.log(person2);
 console.log(person2.getBio());
+
+const person3 = new Person("Imoen", "Winthrop", 17, ["Magic", "Pink", "Thieving"]);
+
+person3.getBio = function () {
+    return "This is fake";
+}
+console.log(person3);
+console.log(person3.getBio());

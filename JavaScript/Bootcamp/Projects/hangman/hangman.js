@@ -2,6 +2,7 @@ const Hangman = function (word, remainingGuesses) {
     this.word = word.toLowerCase().split("");
     this.remainingGuesses = remainingGuesses;
     this.guessedLetters = [];
+    this.status = "playing";
 }
 
 Hangman.prototype.getPuzzle = function () {
@@ -27,22 +28,21 @@ Hangman.prototype.makeGuess = function (guess) {
     if (isUnique && isBadGuess) {
         this.remainingGuesses--;
     }
+    this.calculateStatus();
 }
 
-const first = new Hangman("special", 4);
-const second = new Hangman("stuff", 3);
+Hangman.prototype.calculateStatus = function () {
+    const lettersUnguessed = this.word.filter((letter) => {
+        return !this.guessedLetters.includes(letter);
+    });
 
-first.makeGuess("s");
-first.makeGuess("e");
-first.makeGuess("z");
-console.log(first.remainingGuesses);
+    const finished = lettersUnguessed.length === 0;
 
-console.log(first.getPuzzle());
-console.log(second.getPuzzle());
-
-window.addEventListener("keypress", function(e) {
-    const guess = String.fromCharCode(e.charCode);
-    first.makeGuess(guess);
-    console.log(first.getPuzzle());
-    console.log(first.remainingGuesses);
-});
+    if (this.remainingGuesses === 0) {
+        this.status = "failed";
+    } else if (finished) {
+        this.status = "finished";
+    } else {
+        this.status = "playing";
+    }
+}

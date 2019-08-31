@@ -19,8 +19,48 @@ class Person {
     }
 }
 
+class Employee extends Person {
+    constructor(firstName, lastName, age, position, likes) {
+        super(firstName, lastName, age, likes);
+        this.position = position;
+    }
+    getBio() {
+        return `${this.firstName} ${this.lastName} is a ${this.position}.`;
+    }
+    getYearsLeft() {
+        return 65 - this.age;
+    }
+}
+
+class Student extends Person {
+    constructor(firstName, lastName, age, grade, likes) {
+        super(firstName, lastName, age, likes);
+        this.grade = grade;
+    }
+    getBio() {
+        if (this.grade >= 70) {
+            return `${this.firstName} is passing the class.`
+        }
+        else {
+            return `${this.firstName} is failing the class.`
+        }
+    }
+    updateGrade(num) {
+        this.grade += num;
+    }
+}
+
 const myPerson = new Person("Dorn", "Il-Khan", 22, ["killing", "blood"]);
 console.log(myPerson.getBio());
+
+const person2 = new Employee("Ajantis", "Ilvastarr", 19, "paladin", ["fighting", "Helm"]);
+console.log(person2.getBio());
+console.log(person2.getYearsLeft());
+
+const person3 = new Student("Silandra", "Candlekeep", 18, 90, ["sorcery", "mirrors"]);
+console.log(person3.getBio());
+person3.updateGrade(-50);
+console.log(person3.getBio());
 
 // const Person = function (firstName, lastName, age, likes = []) {
 //     this.firstName = firstName;

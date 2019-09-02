@@ -25,6 +25,12 @@ getCountry("US").then((countryName) => {
     console.log(`Error: ${error}`);
 });
 
+getLocation().then((location) => {
+    console.log(`You are in ${location.city}, ${location.region}, ${location.country}.`)
+}).catch((error) => {
+    console.log(`Error: ${error}`);
+});
+
 // getCountry("FI").then((countryName) => {
 //     console.log(countryName);
 // }, (error) => {

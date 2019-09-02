@@ -19,17 +19,19 @@ getPuzzle("2").then((puzzle) => {
 });
 
 
-getCountry("US").then((countryName) => {
-    console.log(countryName);
+getCurrentCountry().then((country) => {
+    console.log(country.name);
 }).catch((error) => {
-    console.log(`Error: ${error}`);
+    console.log(error);
 });
 
-getLocation().then((location) => {
-    console.log(`You are in ${location.city}, ${location.region}, ${location.country}.`)
-}).catch((error) => {
-    console.log(`Error: ${error}`);
-});
+// getLocation().then((location) => {
+//     return getCountry(location.country);
+// }).then((country) => {
+//     console.log(country.name);
+// }).catch((error) => {
+//     console.log(`Error: ${error}`);
+// });
 
 // getCountry("FI").then((countryName) => {
 //     console.log(countryName);

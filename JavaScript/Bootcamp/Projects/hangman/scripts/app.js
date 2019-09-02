@@ -9,9 +9,13 @@ window.addEventListener("keypress", (e) => {
 });
 
 const render = () => {
-    puzzleElement.textContent = game.puzzle;
+    puzzleElement.innerHTML = "";
     guessesElement.textContent = game.statusMessage;
-}
+
+    game.puzzle.split("").forEach((letter) => {
+        puzzleElement.innerHTML += `<span>${letter}</span>`;
+    });
+};
 
 const startGame = async () => {
     const puzzle = await getPuzzle('2');

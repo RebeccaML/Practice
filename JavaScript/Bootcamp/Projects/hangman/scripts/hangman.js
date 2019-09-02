@@ -8,7 +8,7 @@ class Hangman {
     get puzzle() {
         let puzzle = "";
         this.word.forEach((letter) => {
-            if (this.guessedLetters.includes(letter) || letter == " ") {
+            if (this.guessedLetters.includes(letter) || letter === " ") {
                 puzzle += letter;
             } else {
                 puzzle += "*";
@@ -24,7 +24,6 @@ class Hangman {
         if (this.status !== "playing") {
             return;
         }
-    
         if (isUnique) {
             this.guessedLetters.push(guess);
         }
@@ -34,12 +33,7 @@ class Hangman {
         this.calculateStatus();
     }
     calculateStatus() {
-        const lettersUnguessed = this.word.filter((letter) => {
-            return !this.guessedLetters.includes(letter);
-        });
-    
-        const finished = lettersUnguessed.length === 0;
-    
+        const finished = this.word.every((letter) => this.guessedLetters.includes(letter) || letter === ' ')
         if (this.remainingGuesses === 0) {
             this.status = "failed";
         } else if (finished) {

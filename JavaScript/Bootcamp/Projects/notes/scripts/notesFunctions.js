@@ -24,25 +24,25 @@ const removeNote = (id) => {
 };
 
 const generateNoteDOM = (note) => {
-    const noteElement = document.createElement("div");
-    const textElement = document.createElement("a");
-    const button = document.createElement("button");
-
-    button.textContent = "x";
-    noteElement.appendChild(button);
-    button.addEventListener("click", () => {
-        removeNote(note.id);
-        saveNotes(notes);
-        renderNotes(notes, filters);
-    });
+    const noteElement = document.createElement("a");
+    const textElement = document.createElement("p");
+    const statusElement = document.createElement("p");
 
     if (note.title.length > 0) {
         textElement.textContent = note.title;
     } else {
         textElement.textContent = "Unnamed note";
     }
-    textElement.setAttribute("href", `/edit.html#${note.id}`);
+    textElement.classList.add("list-item__title");
     noteElement.appendChild(textElement);
+
+    noteElement.setAttribute("href", `/edit.html#${note.id}`);
+    noteElement.classList.add("list-item");
+
+    statusElement.textContent = generateLastEdited(note.updatedAt);
+    statusElement.classList.add("list-item__subtitle");
+    noteElement.appendChild(statusElement);
+
     return noteElement;
 };
 
@@ -80,14 +80,24 @@ const sortNotes = (notes, sortBy) => {
     }
 }
 const renderNotes = (notes, filters) => {
+    const notesElement = document.querySelector("#notes");
     notes = sortNotes(notes, filters.sortBy);
     const filteredNotes = notes.filter((note) => note.title.toLowerCase().includes(filters.searchText.toLowerCase()));
 
-    document.querySelector("#notes").innerHTML = "";
-    filteredNotes.forEach((note) => {
-        const noteElement = generateNoteDOM(note);
-        document.querySelector("#notes").appendChild(noteElement);
-    });
+    notesElement.innerHTML = "";
+
+    if (filteredNotes.length > 0) {
+        filteredNotes.forEach((note) => {
+            const noteElement = generateNoteDOM(note);
+            notesElement.appendChild(noteElement);
+        });
+    }
+    else {
+        const emptyMessage = document.createElement("p");
+        emptyMessage.textContent = "No notes to display.";
+        emptyMessage.classList.add("empty-message");
+        notesElement.appendChild(emptyMessage);
+    }
 };
 
 const generateLastEdited = (timestamp) => `Last edited ${moment(timestamp).fromNow()}`

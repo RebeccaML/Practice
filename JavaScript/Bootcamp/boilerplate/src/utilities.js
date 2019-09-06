@@ -2,7 +2,7 @@ console.log("utilities.js");
 
 const add = (a, b) => a + b;
 
-const name = "Rebecca";
+const name = "Sil";
 
 const square = (x) => x * x;
 

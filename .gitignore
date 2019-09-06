@@ -28,3 +28,4 @@ Python/Django/locallibrary/locallibrary/.env
 Python/Django/locallibrary/db.sqlite3
 *.pyc
 Python/SQL/my_friends.db
+JavaScript/Bootcamp/boilerplate/node_modules/

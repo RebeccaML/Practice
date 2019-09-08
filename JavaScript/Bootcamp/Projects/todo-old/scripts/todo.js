@@ -2,11 +2,6 @@
 
 let todoList = getSavedList();
 
-const filters = {
-    searchText: "",
-    hideComplete: false
-};
-
 renderItems(todoList, filters);
 
 document.querySelector("#hide-complete").addEventListener("change", (e) => {

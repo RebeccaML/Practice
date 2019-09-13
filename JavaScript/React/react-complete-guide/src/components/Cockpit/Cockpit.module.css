@@ -1,0 +1,21 @@
+.red {
+    color: red;
+  }
+  
+  .bold {
+    font-weight: bold;
+  }
+  
+  button {
+    border: 2px solid purple;
+    background-color: lavender;
+    color: purple;
+    padding: 10px;
+    transition: background .5s ease;
+  }
+  
+  button:hover {
+    background-color: lavenderblush;
+    cursor: pointer;
+  }
+  
